@@ -44,7 +44,8 @@ public class Interface {
             }
             for (int i = 0; i < DataCache.singerId; i++) {
                 if(login.equals(DataCache.singers[i].getUsername())&&password.equals("123")){
-                    DataCache.dynamicID = DataCache.singers[i].getSingerId();
+                    DataCache.dynamicID = DataCache.singers[i].getId();
+                    Singer.singerInterface();
                 }
             }
             System.err.println("You entered wrong username or password!");

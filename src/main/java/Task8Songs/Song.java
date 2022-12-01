@@ -15,4 +15,15 @@ public class Song {
     private int voteNumbers;
     private Singer singer;
     private int votedUserId;
+
+    public Song() {
+    }
+
+    public Song(int code, String name, Singer singer) {
+        this.code = code;
+        this.name = name;
+
+        this.singer = singer;
+
+    }
 }

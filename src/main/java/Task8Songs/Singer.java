@@ -10,9 +10,12 @@ import lombok.Setter;
 @Data
 public class Singer {
 
-    private int singerId;
+    private int Id;
     private String username;
     private String name;
     private int age;
+    public static void singerInterface(){
+
+    }
 
 }
