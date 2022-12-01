@@ -3,8 +3,6 @@ package Task8Songs;
 import java.util.Scanner;
 
 public class Register {
-    public static int userId=0;
-    public static User[] users = new User[100];
 
     public static void Register(){
         Scanner scanner = new Scanner(System.in);
@@ -12,8 +10,8 @@ public class Register {
 
         System.out.println("Enter Your Username: ");
         String username = scanner.next();
-        for (int i = 0; i < userId; i++) {
-            if(username.equals(users[i].getUsername())){
+        for (int i = 0; i < DataCache.userId; i++) {
+            if(username.equals(DataCache.users[i].getUsername())){
                 System.out.println("This username has already taken try again, Please!");
                 Interface.Interface();
             }
@@ -24,12 +22,15 @@ public class Register {
         String name = scanner.next();
         System.out.println("Enter Your Phone Number");
         String phoneNumber = scanner.next();
-        users[userId].setName(name);
-        users[userId].setUsername(username);
-        users[userId].setPassword(password);
-        users[userId].setPhoneNumber(phoneNumber);
-        users[userId].setUserID(userId);
-        userId++;
+        DataCache.users[DataCache.userId] = new User();
+        DataCache.users[DataCache.userId].setName(name);
+        DataCache.users[DataCache.userId].setUsername(username);
+        DataCache.users[DataCache.userId].setPassword(password);
+        DataCache.users[DataCache.userId].setPhoneNumber(phoneNumber);
+        DataCache.users[DataCache.userId].setUserID(DataCache.userId);
+        System.out.println("You have successfully registered up!");
+        System.out.println();
+        DataCache.userId++;
         Interface.Interface();
     }
 

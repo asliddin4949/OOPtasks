@@ -3,7 +3,7 @@ package Task8Songs;
 import java.util.Scanner;
 
 public class Interface {
-    public static int dynamicID;
+
     public static void Interface() {
         while (true) {
             mainmenu();
@@ -36,9 +36,9 @@ public class Interface {
         if(login.equals("admin")&&password.equals("123")){
             Admin.adminInterface();
         }else {
-            for (int i = 0; i < Register.userId; i++) {
-                if(login.equals(Register.users[i].getUsername())&&password.equals(Register.users[i].getPassword())){
-                    dynamicID=Register.users[i].getUserID();
+            for (int i = 0; i < DataCache.userId; i++) {
+                if(login.equals(DataCache.users[i].getUsername())&&password.equals(DataCache.users[i].getPassword())){
+                    DataCache.dynamicID=DataCache.users[i].getUserID();
                     User.userInterface();
                 }
             }
