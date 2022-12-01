@@ -5,7 +5,8 @@ public class DataCache {
     public static Song[] songs = new Song[100];
     public static User[] users = new User[100];
     public static int userId=0;
-
+    public static int singerId=0;
+    public static int songId=0;
     public static int dynamicID;
 
 }

@@ -38,8 +38,13 @@ public class Interface {
         }else {
             for (int i = 0; i < DataCache.userId; i++) {
                 if(login.equals(DataCache.users[i].getUsername())&&password.equals(DataCache.users[i].getPassword())){
-                    DataCache.dynamicID=DataCache.users[i].getUserID();
+                    DataCache.dynamicID = DataCache.users[i].getUserID();
                     User.userInterface();
+                }
+            }
+            for (int i = 0; i < DataCache.singerId; i++) {
+                if(login.equals(DataCache.singers[i].getUsername())&&password.equals("123")){
+                    DataCache.dynamicID = DataCache.singers[i].getSingerId();
                 }
             }
             System.err.println("You entered wrong username or password!");

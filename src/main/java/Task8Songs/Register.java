@@ -16,6 +16,12 @@ public class Register {
                 Interface.Interface();
             }
         }
+        for (int i = 0; i < DataCache.singers.length; i++) {
+            if(DataCache.singers[i].getUsername().equals(username)){
+                System.out.println("This username has already taken try again, Please!");
+                Interface.Interface();
+            }
+        }
         System.out.println("Enter Your Password: ");
         String password = getpassword();
         System.out.println("Enter Your Name: ");
