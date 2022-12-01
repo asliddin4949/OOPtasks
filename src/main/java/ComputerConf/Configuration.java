@@ -1,4 +1,4 @@
-package Computer;
+package ComputerConf;
 
 import lombok.Getter;
 
