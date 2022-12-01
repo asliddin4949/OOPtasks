@@ -1,8 +1,10 @@
 package Task8Songs;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class Singer {
 
     private int singerId;

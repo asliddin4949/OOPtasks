@@ -1,8 +1,9 @@
 package Task8Songs;
 
-import lombok.Data;
-
-@Data
+import lombok.Getter;
+import lombok.Setter;
+@Getter
+@Setter
 public class Song {
     private int code;
     private String name;
