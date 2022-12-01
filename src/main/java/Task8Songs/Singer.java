@@ -1,7 +1,6 @@
 package Task8Songs;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,22 +25,20 @@ public class Singer {
         if(command==1){
             for (int i = 0; i < DataCache.songId; i++) {
                 if(DataCache.songs[i].getSinger().equals(DataCache.singers[DataCache.dynamicID])){
-                    System.out.println("<-*-><-*-><-*-><-*-><-*-><-*-><-*->");
+
                     System.out.println("Song Code: "+DataCache.songs[i].getCode()
                             +"\nSong name: "+DataCache.songs[i].getName()
                     +"\nNumber of votes: "+DataCache.songs[i].getVoteNumbers());
+                    System.out.println("< - * - > < - * - > < - * - >");
                 }
             }
-
-
+            singerInterface();
         } else if (command==0) {
-            Interface.Interface();
+            Interface.interfaceMenu();
         }else {
             System.err.println("! E ! R ! R ! O ! R !");
             singerInterface();
         }
-
-
     }
 
 }

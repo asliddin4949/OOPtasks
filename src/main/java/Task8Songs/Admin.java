@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Admin {
     public static void adminInterface() {
         System.out.println("* * * Admin Interface * * *");
-        System.out.println("1 - add singer 2 - add song 3 - rating 0 - exit");
+        System.out.println("1 - add singer 2 - add song 3 - show songs 0 - exit");
         Scanner scanner = new Scanner(System.in);
         int command = scanner.nextInt();
         if(command==1){
@@ -17,11 +17,10 @@ public class Admin {
            showSongs();
            adminInterface();
         } else if (command==0) {
-            Interface.Interface();
+            Interface.interfaceMenu();
         }else {
             System.err.println("Wrong command!");
         }
-
     }
 
     private static void addSinger() {
@@ -45,6 +44,7 @@ public class Admin {
             }
         }
         DataCache.singers[DataCache.singerId] = new Singer(DataCache.singerId, username, name, age);
+        System.out.println("Singer successfully added!");
         DataCache.singerId++;
         adminInterface();
     }
@@ -56,6 +56,7 @@ public class Admin {
         System.out.println("Enter Song name: ");
         scanner = new Scanner(System.in);
         String name = scanner.next();
+        showSingers();
         System.out.println("Enter Singer's ID, if doesnt exist please Register Singer First! \"-1\" -exit");
         int id = scanner.nextInt();
         if (id == -1) {
@@ -73,8 +74,8 @@ public class Admin {
 
     private static void sortByRate() {
         Song temp;
-        for (int i = 0; i < DataCache.songs.length; i++) {
-            for (int j = i; j < DataCache.songs.length; j++) {
+        for (int i = 0; i < DataCache.songId; i++) {
+            for (int j = i; j < DataCache.songId; j++) {
                 if (DataCache.songs[i].getVoteNumbers() < DataCache.songs[j].getVoteNumbers()) {
                     temp = DataCache.songs[i];
                     DataCache.songs[i] = DataCache.songs[j];
@@ -83,7 +84,6 @@ public class Admin {
             }
         }
     }
-
     public static void showSongs() {
         System.out.println("* S * o * n * g * s *");
         for (int i = 0; i < DataCache.songId; i++) {
@@ -92,6 +92,11 @@ public class Admin {
             +"\nSinger name: "+DataCache.songs[i].getSinger().getName()
             +"\nVotes: "+DataCache.songs[i].getVoteNumbers());
             System.out.println("< * > < * > < * >");
+        }
+    }
+    private static void showSingers(){
+        for (int i = 0; i < DataCache.singerId; i++) {
+            System.out.println("ID: " + i + " Name: " + DataCache.singers[i].getName());
         }
     }
 }
