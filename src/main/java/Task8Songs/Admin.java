@@ -6,6 +6,22 @@ public class Admin {
     public static void adminInterface() {
         System.out.println("* * * Admin Interface * * *");
         System.out.println("1 - add singer 2 - add song 3 - rating 0 - exit");
+        Scanner scanner = new Scanner(System.in);
+        int command = scanner.nextInt();
+        if(command==1){
+            addSinger();
+        } else if (command==2) {
+            addSong();
+        } else if (command==3) {
+           sortByRate();
+           showSongs();
+           adminInterface();
+        } else if (command==0) {
+            Interface.Interface();
+        }else {
+            System.err.println("Wrong command!");
+        }
+
     }
 
     private static void addSinger() {
@@ -55,12 +71,27 @@ public class Admin {
         }
     }
 
-
-    public static void checkRating() {
-
+    private static void sortByRate() {
+        Song temp;
+        for (int i = 0; i < DataCache.songs.length; i++) {
+            for (int j = i; j < DataCache.songs.length; j++) {
+                if (DataCache.songs[i].getVoteNumbers() < DataCache.songs[j].getVoteNumbers()) {
+                    temp = DataCache.songs[i];
+                    DataCache.songs[i] = DataCache.songs[j];
+                    DataCache.songs[j] = temp;
+                }
+            }
+        }
     }
 
     public static void showSongs() {
-
+        System.out.println("* S * o * n * g * s *");
+        for (int i = 0; i < DataCache.songId; i++) {
+            System.out.println("Song Code: "+DataCache.songs[i].getCode()
+            +"\nSong name: "+DataCache.songs[i].getName()
+            +"\nSinger name: "+DataCache.songs[i].getSinger().getName()
+            +"\nVotes: "+DataCache.songs[i].getVoteNumbers());
+            System.out.println("< * > < * > < * >");
+        }
     }
 }

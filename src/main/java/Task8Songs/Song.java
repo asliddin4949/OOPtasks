@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 @Getter
 @Setter
-@Data
-@AllArgsConstructor
 
 public class Song {
 
