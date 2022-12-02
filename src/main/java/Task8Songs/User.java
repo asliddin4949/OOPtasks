@@ -39,7 +39,7 @@ public class User {
         }else {
             for (int i = 0; i < DataCache.songId; i++) {
                 if(code==DataCache.songs[i].getCode()){
-                     DataCache.songs[i].setVoteNumbers(DataCache.songs[i].getVoteNumbers()+1);
+                     DataCache.songs[i].addVote();
                      flag=false;
                     System.out.println("Successfully voted!");
                      userInterface();

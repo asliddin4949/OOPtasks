@@ -1,27 +1,19 @@
 package Task8Songs;
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
-import lombok.Setter;
 @Getter
-@Setter
-
 public class Song {
 
-    private int code;
-    private String name;
+    private final int code;
+    private final String name;
     private int voteNumbers;
-    private Singer singer;
-    private int votedUserId;
-
-    public Song() {
-    }
+    private final Singer singer;
 
     public Song(int code, String name, Singer singer) {
         this.code = code;
         this.name = name;
-
         this.singer = singer;
-
+    }
+    public void addVote(){
+        this.voteNumbers+=1;
     }
 }
